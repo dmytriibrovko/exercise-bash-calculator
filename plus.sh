@@ -7,6 +7,7 @@ if [[ $1  == *"."* ]]; then
       first_num_dat_first=`echo "$first_num" | cut -f1 -d.`
       first_num_dat_second=`echo "$first_num" |cut -f2 -d.`
       first_num_dat=`echo -n $first_num_dat_second |wc -c`
+      first_num_dat_plase=`echo -n $first_num_dat_first |wc -c`
       first_num_power=$((($first_num_dat_first*10**($first_num_dat))+$first_num_dat_second))
       if [[ $second_num == *"."* ]]; then
          second_num_dat_first=`echo "$second_num" | cut -f1 -d.`
@@ -16,18 +17,19 @@ if [[ $1  == *"."* ]]; then
             first_num_power=$((($first_num_dat_first*10**($first_num_dat))+$first_num_dat_second))
             second_num_power=$((($second_num_dat_first*10**($first_num_dat))+$second_num_dat_second))
             result=$(($first_num_power+$second_num_power))
-            echo $result
+            echo "$result"
             exit 0
          else
             first_num_power=$((($first_num_dat_first*10**($second_num_dat))+$first_num_dat_second))
             second_num_power=$((($second_num_dat_first*10**($second_num_dat))+$second_num_dat_second))
             result=$(($first_num_power+$second_num_power))
-            echo $result
+            echo "$result"
             exit 0
          fi
       else
         result=$(($first_num_power+($second_num*10**($first_num_dat))))
-        echo $result
+        dat=$(seq 1 $(($first_num_dat_plase)) | tr -dc \\n | tr \\n "."; echo;)
+        echo "$result" |sed "s/^\($dat\)/\1./"
         exit 0
       fi
    else
@@ -38,7 +40,7 @@ if [[ $1  == *"."* ]]; then
       first_num_dat_second=`echo "$first_num" |cut -f2 -d.`
       first_num_dat=`echo -n $first_num_dat_second |wc -c`
       result=$(($second_num_power+($first_num*10**($first_num_dat))))
-      echo $result
+      echo "$result"
       exit 0
    fi
 else
