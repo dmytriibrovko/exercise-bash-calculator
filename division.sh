@@ -42,7 +42,7 @@ if [[ $1  == *"."* ]]; then
       exit 0
    fi
 else
-   let result=$(expr $1)
-   echo $result
+   printf %.5f "$((10**5 * $1))e-5"
+   echo " "
    exit 0
 fi
