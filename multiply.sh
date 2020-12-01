@@ -17,17 +17,19 @@ if [[ $1  == *"."* ]]; then
             second_num_power=$((($second_num_dat_first*10**($first_num_dat))+$second_num_dat_second))
             result=$(($first_num_power*$second_num_power))
             echo $result
+            printf %.3f "$((10**3 * $first_num_power*$second_num_power))e-3"
             exit 0
          else
             first_num_power=$((($first_num_dat_first*10**($second_num_dat))+$first_num_dat_second))
             second_num_power=$((($second_num_dat_first*10**($second_num_dat))+$second_num_dat_second))
             result=$(($first_num_power*$second_num_power))
-            echo $result
+            echo $first_num_power
+            printf %.3f "$((10**3 * $first_num_power*$second_num_power))e-3"
             exit 0
          fi
       else
-        result=$(($first_num_power*($second_num*10**($first_num_dat))))
-        echo $result
+        result=$(($second_num*10**$first_num_dat))
+        printf %.4f "$((10**(4-$first_num_dat) * $result*$first_num_power))e-$((4+$first_num_dat))"
         exit 0
       fi
    else
@@ -37,7 +39,7 @@ if [[ $1  == *"."* ]]; then
       second_num_power=$((($second_num_dat_first*10**($second_num_dat))+$second_num_dat_second))
       first_num_dat_second=`echo "$first_num" |cut -f2 -d.`
       first_num_dat=`echo -n $first_num_dat_second |wc -c`
-      result=$(($second_num_power*$first_num*10**($first_num_dat)))
+      result=$(($first_num*10**$first_num_dat))
       echo $result
       exit 0
    fi
