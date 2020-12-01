@@ -13,13 +13,12 @@ if [[ $1  == *"."* ]]; then
          second_num_dat_second=`echo "$second_num" |cut -f2 -d.`
          second_num_dat=`echo -n $second_num_dat_second |wc -c`
          if [[ $first_num_dat -ge $second_num_dat ]]; then
-            first_num_after=$((($first_num_dat_first*10**($first_num_dat))+$first_num_dat_second))
-            second_num_after=$((($second_num_dat_first*10**($first_num_dat))+$second_num_dat_second))
+            second_num_after=$((($second_num_dat_first*10**($first_num_dat))+$second_num_dat_second*10**($first_num_dat-$second_num_dat)))
             printf %.3f "$((10**3 * $first_num_after/$second_num_after))e-3"
             echo " "
             exit 0
          else
-            first_num_after=$((($first_num_dat_first*10**($second_num_dat))+$first_num_dat_second))
+            first_num_after=$((($first_num_dat_first*10**($second_num_dat))+$first_num_dat_second*10**($second_num_dat-$first_num_dat)))
             second_num_after=$((($second_num_dat_first*10**($second_num_dat))+$second_num_dat_second))
             printf %.3f "$((10**3 * $first_num_after/$second_num_after))e-3"
             echo " "
