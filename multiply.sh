@@ -13,18 +13,16 @@ if [[ $1  == *"."* ]]; then
          second_num_dat_second=`echo "$second_num" |cut -f2 -d.`
          second_num_dat=`echo -n $second_num_dat_second |wc -c`
          if [[ $first_num_dat -ge $second_num_dat ]]; then
-            first_num_power=$((($first_num_dat_first*10**($first_num_dat))+$first_num_dat_second))
-            second_num_power=$((($second_num_dat_first*10**($first_num_dat))+$second_num_dat_second))
-            result=$(($first_num_power*$second_num_power))
-            echo $result
-            printf %.3f "$((10**3 * $first_num_power*$second_num_power))e-3"
+            second_num_power=$((($second_num_dat_first*10**($first_num_dat))+$second_num_dat_second*10**($first_num_dat-$second_num_dat)))
+            printf %.4f "$((10**(4-$first_num_dat) * $second_num_power*$first_num_power))e-$((4+$first_num_dat))"
+            echo " "
             exit 0
          else
-            first_num_power=$((($first_num_dat_first*10**($second_num_dat))+$first_num_dat_second))
+            first_num_power=$((($first_num_dat_first*10**($second_num_dat))+$first_num_dat_second*10**($second_num_dat-$first_num_dat)))
             second_num_power=$((($second_num_dat_first*10**($second_num_dat))+$second_num_dat_second))
             result=$(($first_num_power*$second_num_power))
-            echo $first_num_power
-            printf %.3f "$((10**3 * $first_num_power*$second_num_power))e-3"
+            printf %.4f "$((10**(4-$second_num_dat) * $second_num_power*$first_num_power))e-$((4+$second_num_dat))"
+            echo " "
             exit 0
          fi
       else
@@ -37,10 +35,9 @@ if [[ $1  == *"."* ]]; then
       second_num_dat_second=`echo "$second_num" |cut -f2 -d.`
       second_num_dat=`echo -n $second_num_dat_second |wc -c`
       second_num_power=$((($second_num_dat_first*10**($second_num_dat))+$second_num_dat_second))
-      first_num_dat_second=`echo "$first_num" |cut -f2 -d.`
-      first_num_dat=`echo -n $first_num_dat_second |wc -c`
-      result=$(($first_num*10**$first_num_dat))
-      echo $result
+      result=$(($first_num*10**$second_num_dat))
+      printf %.4f "$((10**(4-$second_num_dat) * $result*$second_num_power))e-$((4+$second_num_dat))"
+      echo " "
       exit 0
    fi
 else
