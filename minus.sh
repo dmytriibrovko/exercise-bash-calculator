@@ -22,8 +22,16 @@ if [[ $1  == *"."* ]]; then
             result_quantity=`echo -n $result | wc -c`
             dat_plase=$result_quantity-$first_num_dat
             dat=$(seq 1 $(($dat_plase)) | tr -dc \\n | tr \\n "."; echo;)
-            echo "$result" |sed "s/^\($dat\)/\1./"
-            exit 0
+            result_dat=`echo "$result" |sed "s/^\($dat\)/\1./"`
+            if [[ $result_dat == .* ]]; then
+               echo "0$result_dat"
+               exit 0
+            elif [[ $result_dat == -.* ]]; then
+                 echo "$result_dat" |sed "s/-/-0/"
+            else 
+               echo "$result_dat"
+               exit 0
+            fi
          #x.x-x
          else
             first_num_power=$((($first_num_dat_first*10**($second_num_dat))+$first_num_dat_second))
@@ -32,8 +40,16 @@ if [[ $1  == *"."* ]]; then
             result_quantity=`echo -n $result | wc -c`
             dat_plase=$result_quantity-$second_num_dat
             dat=$(seq 1 $(($dat_plase)) | tr -dc \\n | tr \\n "."; echo;)
-            echo "$result" |sed "s/^\($dat\)/\1./"
-            exit 0
+            result_dat=`echo "$result" |sed "s/^\($dat\)/\1./"`
+            if [[ $result_dat == .* ]]; then
+               echo "0$result_dat"
+               exit 0
+            elif [[ $result_dat == -.* ]]; then
+                 echo "$result_dat" |sed "s/-/-0/"
+            else
+               echo "$result_dat"
+               exit 0
+            fi
          fi
       #x-x.x
       else
@@ -41,8 +57,16 @@ if [[ $1  == *"."* ]]; then
          result_quantity=`echo -n $result | wc -c`
          dat_plase=$result_quantity-$first_num_dat
          dat=$(seq 1 $(($dat_plase)) | tr -dc \\n | tr \\n "."; echo;)
-         echo "$result" |sed "s/^\($dat\)/\1./"
-         exit 0
+         result_dat=`echo "$result" |sed "s/^\($dat\)/\1./"`
+         if [[ $result_dat == .* ]]; then
+             echo "0$result_dat"
+             exit 0
+         elif [[ $result_dat == -.* ]]; then
+             echo "$result_dat" |sed "s/-/-0/"
+         else
+             echo "$result_dat"
+             exit 0
+         fi
       fi
    else
       second_num_dat_first=`echo "$second_num" | cut -f1 -d.`
@@ -53,8 +77,16 @@ if [[ $1  == *"."* ]]; then
       result_quantity=`echo -n $result | wc -c`
       dat_plase=$result_quantity-$second_num_dat
       dat=$(seq 1 $(($dat_plase)) | tr -dc \\n | tr \\n "."; echo;)
-      echo "$result" |sed "s/^\($dat\)/\1./"
-      exit 0
+      result_dat=`echo "$result" |sed "s/^\($dat\)/\1./"`
+      if [[ $result_dat == .* ]]; then
+         echo "0$result_dat"
+         exit 0
+      elif [[ $result_dat == -.* ]]; then
+         echo "$result_dat" |sed "s/-/-0/"
+      else
+         echo "$result_dat"
+         exit 0
+      fi
    fi
 #x-x
 else
