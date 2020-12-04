@@ -1,5 +1,7 @@
 #!/bin/bash
 
+function plus()
+{
 first_num=`echo "$1" | cut -f1 -d+`
 second_num=`echo "$1" | cut -f2 -d+`
 if [[ $1  == *"."* ]]; then
@@ -16,7 +18,7 @@ if [[ $1  == *"."* ]]; then
          if [[ $first_num_dat -ge $second_num_dat ]]; then
             second_num_power=$((($second_num_dat_first*10**($first_num_dat))+$second_num_dat_second*10**($first_num_dat-$second_num_dat)))
             result=$(($first_num_power+$second_num_power))
-            second_quantity=`echo -n $second_num | wc -c`
+            second_quantity=`echo -n $second_num_dat_first | wc -c`
             if [[ $first_num_dat_plase -ge $second_quantity ]]; then
                dat=$(seq 1 $(($first_num_dat_plase)) | tr -dc \\n | tr \\n "."; echo;)
                echo "$result" |sed "s/^\($dat\)/\1./"
@@ -40,7 +42,7 @@ if [[ $1  == *"."* ]]; then
               echo "$result" |sed "s/^\($dat\)/\1./"
               exit 0
             fi
-         fi
+         fi   
       else
         result=$(($first_num_power+($second_num*10**($first_num_dat))))
         second_quantity=`echo -n $second_num | wc -c`
@@ -77,3 +79,4 @@ else
    echo $result
    exit 0
 fi
+}

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+function multiply()
+{
 first_num=`echo "$1" | cut -f1 -d*`
 second_num=`echo "$1" | cut -f2 -d*`
 if [[ $1  == *"."* ]]; then
@@ -28,6 +30,7 @@ if [[ $1  == *"."* ]]; then
       else
         result=$(($second_num*10**$first_num_dat))
         printf %.4f "$((10**(4-$first_num_dat) * $result*$first_num_power))e-$((4+$first_num_dat))"
+        echo " " 
         exit 0
       fi
    else
@@ -45,4 +48,4 @@ else
    echo $result
    exit 0
 fi
-
+}

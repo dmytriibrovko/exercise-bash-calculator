@@ -1,5 +1,7 @@
 #!/bin/bash
 
+function division()
+{
 first_num=`echo "$1" | cut -f1 -d/`
 second_num=`echo "$1" | cut -f2 -d/`
 if [[ $1  == *"."* ]]; then
@@ -45,3 +47,4 @@ else
    echo " "
    exit 0
 fi
+}
