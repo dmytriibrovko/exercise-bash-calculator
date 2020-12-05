@@ -11,12 +11,12 @@ if [[ $1  == *"."* ]]; then
       first_num_dat=`echo -n $first_num_dat_second |wc -c`
       first_num_dat_plase=`echo -n $first_num_dat_first |wc -c`
       first_num_power=$((($first_num_dat_first*10**($first_num_dat))+$first_num_dat_second))
-      #x.x-x.x
+      #Float the first and second numbers
       if [[ $second_num == *"."* ]]; then
          second_num_dat_first=`echo "$second_num" | cut -f1 -d.`
          second_num_dat_second=`echo "$second_num" |cut -f2 -d.`
          second_num_dat=`echo -n $second_num_dat_second |wc -c`
-         #xx.x-x.x or x.x-x.x
+         #Define by what degree to multiply
          if [[ $first_num_dat -ge $second_num_dat ]]; then
             second_num_power=$((($second_num_dat_first*10**($first_num_dat))+$second_num_dat_second))
             result=$(($first_num_power-$second_num_power))
@@ -33,7 +33,7 @@ if [[ $1  == *"."* ]]; then
                echo "$result_dat"
                exit 0
             fi
-         #x.x-x
+         #In the second number of more characters after the point
          else
             first_num_power=$((($first_num_dat_first*10**($second_num_dat))+$first_num_dat_second))
             second_num_power=$((($second_num_dat_first*10**($second_num_dat))+$second_num_dat_second))
@@ -52,7 +52,7 @@ if [[ $1  == *"."* ]]; then
                exit 0
             fi
          fi
-      #x-x.x
+      #Float the first number only
       else
          result=$(($first_num_power-($second_num*10**($first_num_dat))))
          result_quantity=`echo -n $result | wc -c`
@@ -69,6 +69,7 @@ if [[ $1  == *"."* ]]; then
              exit 0
          fi
       fi
+   #Float point the second number only
    else
       second_num_dat_first=`echo "$second_num" | cut -f1 -d.`
       second_num_dat_second=`echo "$second_num" |cut -f2 -d.`
@@ -89,7 +90,7 @@ if [[ $1  == *"."* ]]; then
          exit 0
       fi
    fi
-#x-x
+#Both numbers integers
 else
    let result=$(expr $1)
    echo $result
