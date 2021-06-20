@@ -1,19 +1,26 @@
-# gl-basecamp-bash
+‼️ exercise bash H‼️
+✔️ Write a calculator script calculator.sh which will work both with integer values and floating point values.
 
-https://asciinema.org/a/8lzQhCSAAaEINeGAwYORbTpQ2
+✔️ The calculator should take an arithmetic expression as an input parameter (for example $bash > calculator.sh 10.5/3)
 
-‼️ Домашняя работа по BASH‼️ </br>
- ✔️ Написать калькулятор скрипт calculator.sh который будет работать как с целочисленными значениями так и значениями с плавающей точкой.</br>
- ✔️ Калькулятор должен принимать арифметическое выражение в качестве входного параметра ( например $bash > calculator.sh 10.5/3)</br>
- ✔️ Калькулятор должен делать проверку арифметического выражения и если на вход калькулятора пришли символы отличные от цифр, знаков арифметических действий, то калькулятор должен отобразить ошибку и завершиться с кодом 128. Также не забываем возвращать код 0 по успешному завершению скрипта.</br>
- ✔️ При реализации калькулятора надо использовать функции</br>
- ✔️ Функции должны быть сгруппированы и вынесены в отдельные файлы и подключены в основном скрипте калькулятора  calculator.sh</br>
- ✔️ Нельзя использовать AWK, bc для выполнения арифметических операций внутри калькулятора</br>
- ✔️ Выкладывайте свою работу себе в гитхаб под именем gl-basecamp-bash, по желанию доабавляйте ascii cinema‼️ Домашняя работа по BASH‼️</br>
- ✔️ Написать калькулятор скрипт calculator.sh который будет работать как с целочисленными значениями так и значениями с плавающей точкой.</br>
- ✔️ Калькулятор должен принимать арифметическое выражение в качестве входного параметра ( например $bash > calculator.sh 10.5/3)</br>
- ✔️ Калькулятор должен делать проверку арифметического выражения и если на вход калькулятора пришли символы отличные от цифр, знаков арифметических действий, то калькулятор должен отобразить ошибку и завершиться с кодом 128. Также не забываем возвращать код 0 по успешному завершению скрипта.</br>
- ✔️ При реализации калькулятора надо использовать функции</br>
- ✔️ Функции должны быть сгруппированы и вынесены в отдельные файлы и подключены в основном скрипте калькулятора  calculator.sh</br>
- ✔️ Нельзя использовать AWK, bc для выполнения арифметических операций внутри калькулятора</br>
- ✔️ Выкладывайте свою работу себе в гитхаб под именем gl-basecamp-bash, по желанию доабавляйте ascii cinema</br>
+✔️ The calculator must check the arithmetic expression and if the input of the calculator received symbols other than numbers, signs of arithmetic operations, the calculator must display an error and exit with code 128. Also remember to return the code 0 when the script completes successfully.
+
+✔️ When implementing the calculator, you must use the functions
+
+✔️ The functions must be grouped and placed in separate files and linked in the calculator.sh main script
+
+✔️ You cannot use AWK, bc to perform arithmetic operations within the calculator
+
+✔️ Post your work to your githab as gl-basecamp-bash, add ascii cinema‼️ Homework on BASH‼️
+
+✔️ Write a calculator script calculator.sh that will handle both integer values and floating point values.
+
+✔️ The calculator should take an arithmetic expression as an input parameter (for example $bash > calculator.sh 10.5/3)
+
+✔️ The calculator must check the arithmetic expression and if the input of the calculator received symbols other than numbers, signs of arithmetic operations, the calculator must display an error and exit with code 128. Also remember to return the code 0 when the script completes successfully.
+
+✔️ When implementing the calculator, you must use the functions
+
+✔️ The functions must be grouped and placed in separate files and linked in the calculator.sh main script
+
+✔️ You cannot use AWK, bc to perform arithmetic operations within the calculator
