@@ -1,4 +1,4 @@
-‼️ exercise bash H‼️
+‼️ exercise bash ‼️
 ✔️ Write a calculator script calculator.sh which will work both with integer values and floating point values.
 
 ✔️ The calculator should take an arithmetic expression as an input parameter (for example $bash > calculator.sh 10.5/3)
