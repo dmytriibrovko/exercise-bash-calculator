@@ -9,10 +9,6 @@
 
 ✔️ The functions must be grouped and placed in separate files and linked in the calculator.sh main script
 
-✔️ You cannot use AWK, bc to perform arithmetic operations within the calculator
-
-✔️ Post your work to your githab as gl-basecamp-bash, add ascii cinema‼️ Homework on BASH‼️
-
 ✔️ Write a calculator script calculator.sh that will handle both integer values and floating point values.
 
 ✔️ The calculator should take an arithmetic expression as an input parameter (for example $bash > calculator.sh 10.5/3)
